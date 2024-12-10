@@ -1,0 +1,72 @@
+﻿@using İntProg_Vize.Models
+@model News
+
+<form method="post" enctype="multipart/form-data">
+	<input asp-for="ImageUrl" hidden />
+	<div class="row">
+		<div class="col-10">
+			<div class="border p-3 mt-5">
+				<div class="row pb-3">
+					<h2 class="text-primary">@(Model == null ? "Haber Ekle" : "Haber Güncelle") </h2>
+					</hr>
+				</div>
+
+				<div class="mb-3">
+					<label asp-for="NewsName" class="p-0"></label>
+					<input asp-for="NewsName" class="form-control" />
+					<span asp-validation-for="NewsName" class="text-danger"></span>
+				</div>
+
+				<div class="mb-3">
+					<label asp-for="NewsTypeCategory" class="p-0"></label>
+					<select asp-for="NewsTypeCategory" asp-items="ViewBag.NewsTypeCategory" class="form-select"></select>
+				</div>
+
+				<div class="mb-3">
+					<label asp-for="NewsDescription" class="p-0"></label>
+					<input asp-for="NewsDescription" class="form-control" />
+					<span asp-validation-for="NewsDescription" class="text-danger"></span>
+				</div>
+
+				<div class="mb-3">
+					<label asp-for="NewsPlace" class="p-0"></label>
+					<input asp-for="NewsPlace" class="form-control" />
+					<span asp-validation-for="NewsPlace" class="text-danger"></span>
+				</div>
+
+				<div class="mb-3">
+					<label asp-for="NewsCountry" class="p-0"></label>
+					<input asp-for="NewsCountry" class="form-control" />
+					<span asp-validation-for="NewsCountry" class="text-danger"></span>
+				</div>
+
+				<div class="mb-3">
+					<label asp-for="ImageUrl" class="p-0"></label>
+					<input type="file" name="file" class="form-control" />
+				</div>
+
+				@if (Model != null)
+				{
+					<button type="submit" class="btn btn-lg btn-primary" style="width:400px">Güncelle</button>
+				}
+				else
+				{
+					<button type="submit" class="btn btn-lg btn-primary" style="width:400px">Haber Ekle</button>
+				}
+
+
+				<a asp-controller="News" asp-action="Index" class="btn btn-lg btn-primary" style="width:400px">
+					Haberlere Geri Dön
+				</a>
+
+			</div>
+		</div>
+
+		<div class="col-2">
+			@if (Model != null)
+			{
+				<img src="@Model.ImageUrl" width="100%" style="border-radius:7px; border:1px solid #bbb9b9" />
+			}
+		</div>
+	</div>
+</form>

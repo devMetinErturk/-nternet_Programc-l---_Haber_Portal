@@ -1,0 +1,54 @@
+﻿@model List<NewsType>
+@if (TempData["success"]!=null )
+{
+	<h3>@TempData["success"]</h3>
+}
+
+<div class="container">
+
+	<div class="row pt-3 pb-4">
+		<div>
+			<h1>Haber Türü Sayfası</h1>
+		</div>
+	</div>
+	<table class="table table-bordered ">
+		<thead>
+			<tr>
+				<th>
+					Haber Kodu
+				</th>
+				<th>
+					Haber Türü
+				</th>
+				<th>
+
+				</th>
+				<th>
+
+				</th>
+			</tr>
+		</thead>
+		<tbody>
+			@foreach (var newsType in Model)
+			{
+				<tr>
+					<td>@newsType.Id</td>
+					<td>@newsType.Name</td>
+					<td>
+						<a asp-controller="NewsType" asp-action="NewsTypeUpdate" asp-route-Id="@newsType.Id" type="button" class="btn btn-success" style="width:150px">Güncelle</a>
+					</td>
+					<td>
+						<a asp-controller="NewsType" asp-action="NewsTypeDelete" asp-route-Id="@newsType.Id" type="button" class="btn btn-danger" style="width:150px">Sil</a>
+					</td>
+				</tr>
+			}
+		</tbody>
+	</table>
+
+	<div class="row pt-3 pb-2">
+		<div>
+			<a asp-controller="NewsType" asp-action="NewsTypeAdd" class="btn btn-lg btn-primary" type="button">Yeni Haber Türü</a>
+		</div>
+	</div>
+
+</div>

@@ -1,0 +1,38 @@
+﻿@using İntProg_Vize.Models
+@model News
+
+<form method="post">
+	<div class="border p-3 mt-5">
+		<div class="row pb-3">
+			<h2 class="text-primary">Haber Sil</h2>
+			</hr>
+		</div>
+
+		<div class="mb-3">
+			<label asp-for="NewsName" class="p-0"></label>
+			<input asp-for="NewsName" disabled class="form-control" />
+		</div>
+
+		<div class="mb-3">
+			<label asp-for="NewsDescription" class="p-0"></label>
+			<input asp-for="NewsDescription" disabled class="form-control" />
+		</div>
+
+		<div class="mb-3">
+			<label asp-for="NewsPlace" class="p-0"></label>
+			<input asp-for="NewsPlace" disabled class="form-control" />
+		</div>
+
+		<div class="mb-3">
+			<label asp-for="NewsCountry" class="p-0"></label>
+			<input asp-for="NewsCountry" disabled class="form-control" />
+		</div>
+
+		<button type="submit" class="btn btn-lg btn-primary" style="width:400px">Haber Sil</button>
+
+		<a asp-controller="News" asp-action="Index" class="btn btn-lg btn-primary" style="width:400px">
+			Haberlere Geri Dön
+		</a>
+
+	</div>
+</form>
